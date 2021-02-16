@@ -6,13 +6,13 @@ type Props = {
   artist: string;
 };
 
-export default function SongList(props: Props) {
+export default function SongPreList(props: Props) {
   const songListContent = (
-    <li className={styles.list}>
+    <li className={styles.listItem}>
       <img src={props.image} className={styles.image} />
       <h4 className={styles.title}>{props.title}</h4>
       <p className={styles.artist}>{props.artist}</p>
     </li>
   );
-  return <ol className={styles.orderedList}>{songListContent}</ol>;
+  return songListContent;
 }

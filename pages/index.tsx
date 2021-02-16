@@ -1,9 +1,9 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Greetings from "../components/Greetings";
-import SongList from "../components/SongList";
+import SongPreList from "../components/SongList";
 
-const image =
+const images =
   "http://www.popmonitor.de/wp-content/uploads/2020/10/Die-%C3%84rzte-Hell.jpg";
 const title = ["Ich, Am Strand", "Woodburger"];
 const artist = ["Die Ärzte", "Scooter"];
@@ -15,9 +15,13 @@ export default function Home() {
         <title>Nukebox</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <Greetings name="Leon" />
-      <SongList image={image} title={title[0]} artist={artist[0]} />
-      <SongList image={image} title={title[1]} artist={artist[0]} />
+
+      <ol className={styles.orderedList}>
+        <SongPreList image={images} title={title[0]} artist={artist[0]} />
+        <SongPreList image={images} title={title[1]} artist={artist[0]} />
+      </ol>
     </div>
   );
 }
