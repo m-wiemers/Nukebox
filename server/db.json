@@ -1,16 +1,34 @@
 {
   "tracks": [
     {
-      "id": "scooter_paul-is-dead",
-      "imgSrc": "https://images.unsplash.com/photo-1613473060226-dd81153a63db?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      "title": "Paul is Dead",
-      "artist": "Scooter"
+      "id": "ich-am-strand-aerzte",
+      "imgage": "http://www.popmonitor.de/wp-content/uploads/2020/10/Die-%C3%84rzte-Hell.jpg",
+      "title": "Ich, Am Strand",
+      "artist": "Die Ärzte"
     },
     {
-      "id": "metallica_the-unforgiven",
-      "imgSrc": "https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?ixid=MXwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      "title": "The Unforgiven",
-      "artist": "Metallica"
+      "id": "woodburger-aerzte",
+      "image": "http://www.popmonitor.de/wp-content/uploads/2020/10/Die-%C3%84rzte-Hell.jpg",
+      "title": "Woodburger",
+      "artist": "Die Ärzte"
+    },
+    {
+      "id": "midas-i-fight-with-mr-right",
+      "image": "https://gp1.wac.edgecastcdn.net/802892/http_public_production/photos/images/22524662/original/resize:300x225/crop:x11y12w442h332/hash:1464660523/1431279375_794321017313258_1731408266737095111_n.png",
+      "title": "Midas",
+      "artist": "I Fight With Mr Right"
+    },
+    {
+      "id": "irgendwas-ist-bloed-kapelle-petra",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/71cs8nyNPPL._SL1200_.jpg",
+      "title": "Irgendwas Ist Blöd",
+      "artist": "Kapelle Petra"
+    },
+    {
+      "id": "stray-heart-green-day",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/91L%2BjT5HY7L._SL1500_.jpg",
+      "title": "Stray Heart",
+      "artist": "Green Day"
     }
   ]
 }

@@ -18,9 +18,9 @@ const songs = [
   },
   {
     image:
-      "https://profile-images.xing.com/images/bee4e5ffea74d2f27c54d935d45d0638-5/leon-machens.256x256.jpg",
-    title: "I Fight with Mr Right",
-    artist: "Midas",
+      "https://gp1.wac.edgecastcdn.net/802892/http_public_production/photos/images/22524662/original/resize:300x225/crop:x11y12w442h332/hash:1464660523/1431279375_794321017313258_1731408266737095111_n.png",
+    title: "Midas",
+    artist: "I Fight with Mr Right",
   },
 ];
 
