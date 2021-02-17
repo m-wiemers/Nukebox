@@ -1,0 +1,30 @@
+.listItem {
+  list-style: none;
+  display: grid;
+  grid-template: 1.6em 1.6em / 3.2em 1fr;
+  grid-template-areas:
+    "img title"
+    "img artist";
+  grid-column-gap: 10px;
+  align-items: center;
+}
+
+.image {
+  grid-area: img;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.title {
+  grid-area: title;
+  align-self: end;
+  font-weight: bolder;
+}
+
+.artist {
+  grid-area: artist;
+  color: var(--secondary-text-color);
+  align-self: start;
+}
