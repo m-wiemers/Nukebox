@@ -3,10 +3,35 @@ import styles from "../styles/Home.module.css";
 import Greetings from "../components/Greetings";
 import SongPreList from "../components/SongList";
 
-const images =
-  "http://www.popmonitor.de/wp-content/uploads/2020/10/Die-%C3%84rzte-Hell.jpg";
-const title = ["Ich, Am Strand", "Woodburger"];
-const artist = ["Die Ärzte", "Scooter"];
+const songs = [
+  {
+    image:
+      "http://www.popmonitor.de/wp-content/uploads/2020/10/Die-%C3%84rzte-Hell.jpg",
+    title: "Ich, Am Strand",
+    artist: "Die Ärzte",
+  },
+  {
+    image:
+      "http://www.popmonitor.de/wp-content/uploads/2020/10/Die-%C3%84rzte-Hell.jpg",
+    title: "Woodburger",
+    artist: "Die Ärzte",
+  },
+  {
+    image:
+      "https://profile-images.xing.com/images/bee4e5ffea74d2f27c54d935d45d0638-5/leon-machens.256x256.jpg",
+    title: "I Fight with Mr Right",
+    artist: "Midas",
+  },
+];
+
+const songsItem = songs.map((song) => (
+  <SongPreList
+    key={`${song.artist}-${song.title}`}
+    image={song.image}
+    title={song.title}
+    artist={song.artist}
+  />
+));
 
 export default function Home() {
   return (
@@ -18,10 +43,7 @@ export default function Home() {
 
       <Greetings name="Leon" />
 
-      <ol className={styles.orderedList}>
-        <SongPreList image={images} title={title[0]} artist={artist[0]} />
-        <SongPreList image={images} title={title[1]} artist={artist[0]} />
-      </ol>
+      <ol className={styles.orderedList}>{songsItem}</ol>
     </div>
   );
 }
