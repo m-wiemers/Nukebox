@@ -1,39 +1,30 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Greetings from "../components/Greetings";
-import SongPreList from "../components/SongList";
-
-const songs = [
-  {
-    image:
-      "http://www.popmonitor.de/wp-content/uploads/2020/10/Die-%C3%84rzte-Hell.jpg",
-    title: "Ich, Am Strand",
-    artist: "Die Ärzte",
-  },
-  {
-    image:
-      "http://www.popmonitor.de/wp-content/uploads/2020/10/Die-%C3%84rzte-Hell.jpg",
-    title: "Woodburger",
-    artist: "Die Ärzte",
-  },
-  {
-    image:
-      "https://profile-images.xing.com/images/bee4e5ffea74d2f27c54d935d45d0638-5/leon-machens.256x256.jpg",
-    title: "I Fight with Mr Right",
-    artist: "Midas",
-  },
-];
-
-const songsItem = songs.map((song) => (
-  <SongPreList
-    key={`${song.artist}-${song.title}`}
-    image={song.image}
-    title={song.title}
-    artist={song.artist}
-  />
-));
+import SongPrev from "../components/SongList";
+import { useEffect, useState } from "react";
+import { APISong, getSongs } from "../utils/api";
 
 export default function Home() {
+  // add const "tracks" and set the status to an empty Array from type "APITracks"
+  const [songs, setSongs] = useState<APISong[]>([]);
+
+  // don`t know what this really do, but I like effects.
+  useEffect(() => {
+    getSongs().then((newTracks) => {
+      setSongs(newTracks);
+    });
+  }, []);
+
+  const songsItem = songs.map((song) => (
+    <SongPrev
+      key={`${song.artist}-${song.title}`}
+      image={song.image}
+      title={song.title}
+      artist={song.artist}
+    />
+  ));
+
   return (
     <div className={styles.container}>
       <Head>
