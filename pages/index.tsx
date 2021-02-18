@@ -4,6 +4,7 @@ import Greetings from "../components/Greetings";
 import SongPrev from "../components/SongList";
 import { useEffect, useState } from "react";
 import { APISong, getSongs } from "../utils/api";
+import Link from "next/link";
 
 export default function Home() {
   // add const "tracks" and set the status to an empty Array from type "APITracks"
@@ -17,12 +18,11 @@ export default function Home() {
   }, []);
 
   const songsItem = songs.map((song) => (
-    <SongPrev
-      key={`${song.artist}-${song.title}`}
-      image={song.image}
-      title={song.title}
-      artist={song.artist}
-    />
+    <Link href={`/songs/${song.id}`} key={song.id}>
+      <a>
+        <SongPrev image={song.image} title={song.title} artist={song.artist} />
+      </a>
+    </Link>
   ));
 
   return (

@@ -1,0 +1,18 @@
+.container {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.img {
+  max-width: 500px;
+  padding: 2em;
+}
+
+.title {
+  font-size: 3em;
+}
+
+.artist {
+  padding: 2em;
+}
