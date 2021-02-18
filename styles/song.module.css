@@ -11,8 +11,10 @@
 
 .title {
   font-size: 3em;
+  font-weight: bolder;
 }
 
 .artist {
-  padding: 2em;
+  padding: 1em;
+  font-size: 2em;
 }
