@@ -5,6 +5,7 @@ import SongPrev from "../components/SongList";
 import { useEffect, useState } from "react";
 import { APISong, getSongs } from "../utils/api";
 import Link from "next/link";
+import Button from "../components/Button";
 
 export default function Home() {
   // add const "tracks" and set the status to an empty Array from type "APITracks"

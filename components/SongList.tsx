@@ -1,5 +1,4 @@
 import styles from "../styles/SongList.module.css";
-import Button from "../components/Button";
 
 type Props = {
   image: string;
@@ -14,7 +13,6 @@ export default function SongPrev(props: Props) {
       <img className={styles.image} src={props.image} />
       <div className={styles.title}>{props.title}</div>
       <div className={styles.artist}>{props.artist}</div>
-      <Button />
     </li>
   );
   return songContent;
