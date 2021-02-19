@@ -28,11 +28,13 @@ export default function Song() {
     <SongContent image={song.image} title={song.title} artist={song.artist} />
   );
 
-  // const songNavigation = <Songnavigation />;
+  function goBack() {
+    window.history.back();
+  }
 
   return (
     <>
-      <Songnavigation />
+      <Songnavigation back={goBack} />
       <div>{songItem}</div>
       <Player />
     </>
