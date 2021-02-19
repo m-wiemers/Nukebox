@@ -1,37 +1,33 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Greetings from "../components/Greetings";
-import SongPreList from "../components/SongList";
+import SongPrev from "../components/SongList";
+import { useEffect, useState } from "react";
+import { APISong, getSongs } from "../utils/api";
+import Link from "next/link";
 
 export default function Home() {
-  const songs = [
-    {
-      image:
-        "http://www.popmonitor.de/wp-content/uploads/2020/10/Die-%C3%84rzte-Hell.jpg",
-      title: "Ich, Am Strand",
-      artist: "Die Ärzte",
-    },
-    {
-      image:
-        "http://www.popmonitor.de/wp-content/uploads/2020/10/Die-%C3%84rzte-Hell.jpg",
-      title: "Woodburger",
-      artist: "Die Ärzte",
-    },
-    {
-      image:
-        "https://gp1.wac.edgecastcdn.net/802892/http_public_production/photos/images/22524662/original/resize:300x225/crop:x11y12w442h332/hash:1464660523/1431279375_794321017313258_1731408266737095111_n.png",
-      title: "Midas",
-      artist: "I Fight with Mr Right",
-    },
-  ];
+  // add const "tracks" and set the status to an empty Array from type "APITracks"
+  const [songs, setSongs] = useState<APISong[]>([]);
+
+  // don`t know what this really do, but I like effects.
+  useEffect(() => {
+    getSongs().then((newTracks) => {
+      setSongs(newTracks);
+    });
+  }, []);
 
   const songsItem = songs.map((song) => (
-    <SongPreList
-      key={`${song.artist}-${song.title}`}
-      image={song.image}
-      title={song.title}
-      artist={song.artist}
-    />
+    <Link href={`/songs/${song.id}`} key={song.id}>
+      <a>
+        <SongPrev
+          image={song.image}
+          title={song.title}
+          artist={song.artist}
+          link={song.path}
+        />
+      </a>
+    </Link>
   ));
 
   return (

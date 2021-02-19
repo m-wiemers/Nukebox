@@ -5,10 +5,11 @@ type Props = {
   image: string;
   title: string;
   artist: string;
+  link: string;
 };
 
-export default function SongPreList(props: Props) {
-  const songListContent = (
+export default function SongPrev(props: Props) {
+  const songContent = (
     <li className={styles.listItem}>
       <img className={styles.image} src={props.image} />
       <div className={styles.title}>{props.title}</div>
@@ -16,5 +17,5 @@ export default function SongPreList(props: Props) {
       <Button />
     </li>
   );
-  return songListContent;
+  return songContent;
 }
