@@ -4,6 +4,7 @@ type Props = {
   image: string;
   title: string;
   artist: string;
+  link: string;
 };
 
 export default function SongPrev(props: Props) {

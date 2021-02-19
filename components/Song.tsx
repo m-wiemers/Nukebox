@@ -4,6 +4,7 @@ type Props = {
   image: string;
   title: string;
   artist: string;
+  path: string;
 };
 
 export default function SongContent(props: Props) {

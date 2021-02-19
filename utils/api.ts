@@ -4,6 +4,7 @@ export type APISong = {
   image: string;
   title: string;
   artist: string;
+  path: string;
 };
 
 // export an asynch Function "getTrack"

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { APISong, getSong } from "../../utils/api";
 import SongContent from "../../components/Song";
 import Songnavigation from "../../components/Songnavigation";
-import Player from "../../components/Player";
+import AudioPlay from "../../components/AudioPlay";
 
 export default function Song() {
   const router = useRouter();
@@ -25,18 +25,25 @@ export default function Song() {
   }
 
   const songItem = (
-    <SongContent image={song.image} title={song.title} artist={song.artist} />
+    <SongContent
+      image={song.image}
+      title={song.title}
+      artist={song.artist}
+      path={song.path}
+    />
   );
 
   function goBack() {
     window.history.back();
   }
 
+  const path = song.path;
+
   return (
     <>
       <Songnavigation back={goBack} />
       <div>{songItem}</div>
-      <Player />
+      <AudioPlay audio={path} />
     </>
   );
 }
