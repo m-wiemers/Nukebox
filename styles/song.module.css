@@ -1,7 +1,6 @@
 .container {
   display: grid;
   justify-items: center;
-  text-align: center;
 }
 
 .img {
@@ -10,11 +9,12 @@
 }
 
 .title {
-  font-size: 3em;
+  font-size: 2.5em;
   font-weight: bolder;
 }
 
 .artist {
   padding: 1em;
-  font-size: 2em;
+  font-size: 1.5em;
+  color: var(--secondary-text-color);
 }
