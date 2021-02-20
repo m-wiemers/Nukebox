@@ -1,4 +1,5 @@
 .container {
   display: grid;
   justify-items: center;
+  background-color: var(--secondary-color);
 }

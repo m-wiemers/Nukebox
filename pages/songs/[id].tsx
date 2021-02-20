@@ -4,6 +4,7 @@ import { APISong, getSong } from "../../utils/api";
 import SongContent from "../../components/Song";
 import Songnavigation from "../../components/Songnavigation";
 import AudioPlay from "../../components/AudioPlay";
+import AudioPlayer from "../../components/AudioPlayer";
 
 export default function Song() {
   const router = useRouter();
@@ -44,6 +45,7 @@ export default function Song() {
       <Songnavigation back={goBack} />
       <div>{songItem}</div>
       <AudioPlay audio={path} />
+      <AudioPlayer />
     </>
   );
 }
