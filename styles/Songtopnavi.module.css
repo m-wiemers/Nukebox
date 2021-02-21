@@ -1,6 +1,6 @@
 .globalcont {
   display: grid;
-  justify-content: center;
+  justify-items: center;
 }
 
 .container {

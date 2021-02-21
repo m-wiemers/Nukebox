@@ -1,16 +1,12 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styles from "../styles/AudioPlayer.module.css";
+import Button from "./Button";
 
-type Props = {
-  audio: string;
-};
+// type Props = {
+//   audio: string,
+// };
 
-type Play = {
-  play?(): any;
-  pause?(): any;
-};
-
-export default function AudioPlayer(props: Props) {
+export default function AudioPlayer(props) {
   const playSVG = (
     <svg
       className={styles.buttonSVG}
@@ -50,14 +46,14 @@ export default function AudioPlayer(props: Props) {
 
   const [play, setPlay] = useState(playSVG);
   const [playStatus, setPlayStatus] = useState(true);
+  const song = useRef(null);
 
-  function playAudio(props: Play) {
-    const song = document.getElementById("song");
+  function playAudio() {
+    // const song = document.getElementById("song");
     if (playStatus === false) {
-      song.pause();
+      song.current.pause();
     } else {
-      // Property 'play' does not exist on type 'HTMLElement'
-      song.play();
+      song.current.play();
     }
   }
 
@@ -73,10 +69,14 @@ export default function AudioPlayer(props: Props) {
 
   const audioPlayerContent = (
     <div className={styles.container}>
-      <audio id="song" src={props.audio} />
-      <button onClick={playAndChange} className={styles.button}>
-        {play}
-      </button>
+      <div className={styles.player}>
+        <Button />
+        {/* <audio id="song" src={props.audio} /> */}
+        <audio ref={song} src={props.audio} />
+        <button onClick={playAndChange} className={styles.button}>
+          {play}
+        </button>
+      </div>
       {/* <button className={styles.pauseButton}>{pauseSVG}</button> */}
     </div>
   );

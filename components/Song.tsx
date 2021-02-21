@@ -14,7 +14,6 @@ export default function SongContent(props: Props) {
       <img className={styles.img} src={props.image} />
       <div className={styles.title}>{props.title}</div>
       <div className={styles.artist}>{props.artist}</div>
-      <Button />
     </div>
   );
   return singleSongContent;
