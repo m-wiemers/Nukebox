@@ -47,7 +47,7 @@ export default function AudioPlayer(props: Props) {
   const [playStatus, setPlayStatus] = useState(true);
 
   function playAudio() {
-    const song = document.getElementById("song");
+    const song: HTMLMediaElement = document.getElementById("song");
     if (playStatus === false) {
       song.pause();
     } else {
