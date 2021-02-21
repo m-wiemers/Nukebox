@@ -5,6 +5,11 @@ type Props = {
   audio: string;
 };
 
+type Play = {
+  play?(): any;
+  pause?(): any;
+};
+
 export default function AudioPlayer(props: Props) {
   const playSVG = (
     <svg
@@ -46,11 +51,12 @@ export default function AudioPlayer(props: Props) {
   const [play, setPlay] = useState(playSVG);
   const [playStatus, setPlayStatus] = useState(true);
 
-  function playAudio() {
-    const song: HTMLMediaElement = document.getElementById("song");
+  function playAudio(props: Play) {
+    const song = document.getElementById("song");
     if (playStatus === false) {
       song.pause();
     } else {
+      // Property 'play' does not exist on type 'HTMLElement'
       song.play();
     }
   }
