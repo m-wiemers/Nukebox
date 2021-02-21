@@ -45,7 +45,7 @@ export default function Song() {
       <Songnavigation back={goBack} />
       <div>{songItem}</div>
       <AudioPlay audio={path} />
-      <AudioPlayer />
+      <AudioPlayer audio={path} />
     </>
   );
 }

@@ -1,7 +1,11 @@
 import { useState } from "react";
 import styles from "../styles/AudioPlayer.module.css";
 
-export default function AudioPlayer() {
+type Props = {
+  audio: string;
+};
+
+export default function AudioPlayer(props: Props) {
   const playSVG = (
     <svg
       className={styles.buttonSVG}
@@ -38,57 +42,36 @@ export default function AudioPlayer() {
       <path d="m213.057 160.057c-11.598 0-21 9.402-21 21v149.333c0 11.598 9.402 21 21 21s21-9.402 21-21v-149.333c0-11.598-9.401-21-21-21z" />
     </svg>
   );
-  const prevSVG = (
-    <svg
-      className={styles.prevSVG}
-      version="1.1"
-      id="Capa_1"
-      x="0px"
-      y="0px"
-      viewBox="0 0 240.823 240.823"
-    >
-      <path
-        id="Chevron_Right"
-        d="M57.633,129.007L165.93,237.268c4.752,4.74,12.451,4.74,17.215,0c4.752-4.74,4.752-12.439,0-17.179
-       l-99.707-99.671l99.695-99.671c4.752-4.74,4.752-12.439,0-17.191c-4.752-4.74-12.463-4.74-17.215,0L57.621,111.816
-       C52.942,116.507,52.942,124.327,57.633,129.007z"
-      />
-    </svg>
-  );
-  const nextSVG = (
-    <svg
-      className={styles.nextSVG}
-      version="1.1"
-      id="Capa_1"
-      x="0px"
-      y="0px"
-      viewBox="0 0 240.823 240.823"
-    >
-      <path
-        id="Chevron_Right_1_"
-        d="M183.189,111.816L74.892,3.555c-4.752-4.74-12.451-4.74-17.215,0c-4.752,4.74-4.752,12.439,0,17.179
-		l99.707,99.671l-99.695,99.671c-4.752,4.74-4.752,12.439,0,17.191c4.752,4.74,12.463,4.74,17.215,0l108.297-108.261
-		C187.881,124.315,187.881,116.495,183.189,111.816z"
-      />
-    </svg>
-  );
 
   const [play, setPlay] = useState(playSVG);
   const [playStatus, setPlayStatus] = useState(true);
+
+  function playAudio() {
+    const song = document.getElementById("song");
+    if (playStatus === false) {
+      song.pause();
+    } else {
+      song.play();
+    }
+  }
 
   function changePlay() {
     setPlayStatus(playStatus ? false : true);
     setPlay(playStatus ? pauseSVG : playSVG);
   }
 
+  function playAndChange() {
+    changePlay();
+    playAudio();
+  }
+
   const audioPlayerContent = (
     <div className={styles.container}>
-      <button className={styles.prevButton}>{prevSVG}</button>
-      <button onClick={changePlay} className={styles.button}>
+      <audio id="song" src={props.audio} />
+      <button onClick={playAndChange} className={styles.button}>
         {play}
       </button>
       {/* <button className={styles.pauseButton}>{pauseSVG}</button> */}
-      <button className={styles.nextButton}>{nextSVG}</button>
     </div>
   );
   return audioPlayerContent;

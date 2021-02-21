@@ -17,14 +17,3 @@
   border: none;
   fill: white;
 }
-
-.nextSVG,
-.prevSVG,
-.nextButton,
-.prevButton {
-  padding: 0;
-  width: 20px;
-  background-color: transparent;
-  border: none;
-  fill: white;
-}
