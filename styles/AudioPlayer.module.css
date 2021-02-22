@@ -13,6 +13,12 @@
   justify-items: center;
 }
 
+.timer {
+  height: 100px;
+  color: white;
+  font-size: 16px;
+}
+
 .buttonSVG,
 .button {
   padding: 0;

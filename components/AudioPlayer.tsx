@@ -1,12 +1,12 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "../styles/AudioPlayer.module.css";
 import Button from "./Button";
 
-// type Props = {
-//   audio: string,
-// };
+type Props = {
+  audio: string;
+};
 
-export default function AudioPlayer(props) {
+export default function AudioPlayer(props: Props) {
   const playSVG = (
     <svg
       className={styles.buttonSVG}
@@ -49,13 +49,16 @@ export default function AudioPlayer(props) {
   const song = useRef(null);
 
   function playAudio() {
-    // const song = document.getElementById("song");
     if (playStatus === false) {
       song.current.pause();
     } else {
       song.current.play();
     }
   }
+
+  useEffect(() => {
+    song.addEventListener("timeUpdate");
+  }, []);
 
   function changePlay() {
     setPlayStatus(playStatus ? false : true);
@@ -67,17 +70,20 @@ export default function AudioPlayer(props) {
     playAudio();
   }
 
+  function getCurTime() {
+    return song.current.currentTime;
+  }
+
   const audioPlayerContent = (
     <div className={styles.container}>
       <div className={styles.player}>
         <Button />
-        {/* <audio id="song" src={props.audio} /> */}
         <audio ref={song} src={props.audio} />
         <button onClick={playAndChange} className={styles.button}>
           {play}
         </button>
+        <div className={styles.timer}>{getCurTime()}</div>
       </div>
-      {/* <button className={styles.pauseButton}>{pauseSVG}</button> */}
     </div>
   );
   return audioPlayerContent;
