@@ -6,21 +6,14 @@
 .player {
   background-color: var(--secondary-color);
   border-radius: 15px 15px 0 0;
-  bottom: 0;
   width: 500px;
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
 }
 
-.timer {
-  height: 100px;
-  color: white;
-  font-size: 16px;
-}
-
 .buttonSVG,
-.button {
+.playButton {
   padding: 0;
   width: 50px;
   height: 50px;

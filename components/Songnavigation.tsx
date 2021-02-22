@@ -1,7 +1,7 @@
 import styles from "../styles/Songtopnavi.module.css";
 
 type Props = {
-  back: any;
+  back?(): void;
 };
 
 export default function Songnavigation(props: Props) {

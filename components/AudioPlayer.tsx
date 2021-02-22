@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import styles from "../styles/AudioPlayer.module.css";
-import Button from "./Button";
+import LikeButton from "./LikeButton";
 
 type Props = {
   audio: string;
@@ -62,23 +62,14 @@ export default function AudioPlayer(props: Props) {
     playAudio();
   }
 
-  // useEffect(() => {
-  //   song.addEventListener("timeUpdate");
-  // }, []);
-
-  // function getCurTime() {
-  //   return song.current.currentTime;
-  // }
-
   const audioPlayerContent = (
     <div className={styles.container}>
       <div className={styles.player}>
-        <Button />
+        <LikeButton />
         <audio ref={song} src={props.audio} />
-        <button onClick={playAndChange} className={styles.button}>
+        <button onClick={playAndChange} className={styles.playButton}>
           {play}
         </button>
-        {/* <div className={styles.timer}>{getCurTime()}</div> */}
       </div>
     </div>
   );

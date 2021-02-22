@@ -1,9 +1,10 @@
 import { useState } from "react";
-import styles from "../styles/Button.module.css";
+import styles from "../styles/LikeButton.module.css";
 
-export default function Button() {
+export default function LikeButton() {
   const likeVector = (
     <svg
+      className={styles.unlike}
       version="1.1"
       id="Capa_1"
       xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +13,6 @@ export default function Button() {
       viewBox="0 0 512 512"
     >
       <path
-        className={styles.unlike}
         d="M376,30c-27.783,0-53.255,8.804-75.707,26.168c-21.525,16.647-35.856,37.85-44.293,53.268
 c-8.437-15.419-22.768-36.621-44.293-53.268C189.255,38.804,163.783,30,136,30C58.468,30,0,93.417,0,177.514
 c0,90.854,72.943,153.015,183.369,247.118c18.752,15.981,40.007,34.095,62.099,53.414C248.38,480.596,252.12,482,256,482
@@ -23,6 +23,7 @@ C512,93.417,453.532,30,376,30z"
   );
   const unLikeVector = (
     <svg
+      className={styles.like}
       version="1.1"
       id="Capa_1"
       xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +32,6 @@ C512,93.417,453.532,30,376,30z"
       viewBox="0 0 512 512"
     >
       <path
-        className={styles.like}
         d="M474.644,74.27C449.391,45.616,414.358,29.836,376,29.836c-53.948,0-88.103,32.22-107.255,59.25
      c-4.969,7.014-9.196,14.047-12.745,20.665c-3.549-6.618-7.775-13.651-12.745-20.665c-19.152-27.03-53.307-59.25-107.255-59.25
      c-38.358,0-73.391,15.781-98.645,44.435C13.267,101.605,0,138.213,0,177.351c0,42.603,16.633,82.228,52.345,124.7
