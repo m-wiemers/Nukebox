@@ -1,5 +1,4 @@
 import styles from "../styles/song.module.css";
-import Button from "./Button";
 
 type Props = {
   image: string;

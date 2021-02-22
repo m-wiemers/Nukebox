@@ -49,11 +49,7 @@ export default function AudioPlayer(props: Props) {
   const song = useRef(null);
 
   function playAudio() {
-    if (playStatus === false) {
-      song.current.pause();
-    } else {
-      song.current.play();
-    }
+    playStatus === false ? song.current.pause() : song.current.play();
   }
 
   function changePlay() {
@@ -66,9 +62,13 @@ export default function AudioPlayer(props: Props) {
     playAudio();
   }
 
-  function getCurTime() {
-    return song.current.currentTime;
-  }
+  // useEffect(() => {
+  //   song.addEventListener("timeUpdate");
+  // }, []);
+
+  // function getCurTime() {
+  //   return song.current.currentTime;
+  // }
 
   const audioPlayerContent = (
     <div className={styles.container}>
@@ -78,7 +78,7 @@ export default function AudioPlayer(props: Props) {
         <button onClick={playAndChange} className={styles.button}>
           {play}
         </button>
-        <div className={styles.timer}>{getCurTime()}</div>
+        {/* <div className={styles.timer}>{getCurTime()}</div> */}
       </div>
     </div>
   );
