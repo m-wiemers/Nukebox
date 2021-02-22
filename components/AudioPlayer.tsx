@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import styles from "../styles/AudioPlayer.module.css";
 import Button from "./Button";
 
@@ -55,10 +55,6 @@ export default function AudioPlayer(props: Props) {
       song.current.play();
     }
   }
-
-  useEffect(() => {
-    song.addEventListener("timeUpdate");
-  }, []);
 
   function changePlay() {
     setPlayStatus(playStatus ? false : true);
