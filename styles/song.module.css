@@ -1,6 +1,7 @@
 .container {
   display: grid;
   justify-items: center;
+  grid-template-rows: auto auto auto;
 }
 
 .img {

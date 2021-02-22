@@ -1,0 +1,14 @@
+.button {
+  height: 35px;
+  width: 35px;
+  border: none;
+  background-color: transparent;
+}
+
+.unlike {
+  fill: red;
+}
+
+.like {
+  fill: red;
+}
