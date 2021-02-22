@@ -1,10 +1,4 @@
-.globalcont {
-  display: grid;
-  justify-items: center;
-}
-
 .container {
-  width: 500px;
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;

@@ -1,23 +1,17 @@
-.container {
-  display: grid;
-  justify-items: center;
-}
-
 .player {
   background-color: var(--secondary-color);
   border-radius: 15px 15px 0 0;
-  width: 500px;
   display: grid;
-  grid-template-columns: 1fr;
+  width: 90vw;
   justify-items: center;
 }
 
-.buttonSVG,
 .playButton {
   padding: 0;
-  width: 50px;
-  height: 50px;
-  background-color: transparent;
+  width: 70px;
+  height: 70px;
+  background-color: var(--background-color);
   border: none;
+  border-radius: 100px;
   fill: white;
 }

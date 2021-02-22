@@ -4,6 +4,7 @@ import { APISong, getSong } from "../../utils/api";
 import SongContent from "../../components/Song";
 import Songnavigation from "../../components/Songnavigation";
 import AudioPlayer from "../../components/AudioPlayer";
+import styles from "../../styles/id.module.css";
 
 export default function Song() {
   const router = useRouter();
@@ -24,26 +25,24 @@ export default function Song() {
     return <div>Loading...</div>;
   }
 
-  const songItem = (
-    <SongContent
-      image={song.image}
-      title={song.title}
-      artist={song.artist}
-      path={song.path}
-    />
-  );
-
   function goBack() {
     window.history.back();
   }
 
-  const path = song.path;
-
   return (
-    <>
+    <div className={styles.globContainer}>
       <Songnavigation back={goBack} />
-      <div>{songItem}</div>
-      <AudioPlayer audio={path} />
-    </>
+      <main>
+        <SongContent
+          image={song.image}
+          title={song.title}
+          artist={song.artist}
+          path={song.path}
+        />
+      </main>
+      <footer>
+        <AudioPlayer audio={song.path} />
+      </footer>
+    </div>
   );
 }
