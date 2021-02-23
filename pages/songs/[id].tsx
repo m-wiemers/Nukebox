@@ -9,16 +9,13 @@ import styles from "../../styles/id.module.css";
 export default function Song() {
   const router = useRouter();
   const { id } = router.query;
-
   const [song, setSong] = useState<APISong>(null);
 
   useEffect(() => {
     if (typeof id !== "string") {
       return;
     }
-    getSong(id).then((newSong) => {
-      setSong(newSong);
-    });
+    getSong(id).then((newSong) => setSong(newSong));
   }, [id]);
 
   if (!song) {
@@ -31,6 +28,9 @@ export default function Song() {
 
   return (
     <div className={styles.globContainer}>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
       <Songnavigation back={goBack} />
       <main>
         <SongContent
@@ -41,7 +41,7 @@ export default function Song() {
         />
       </main>
       <footer>
-        <AudioPlayer audio={song.path} />
+        <AudioPlayer audio={song.path} id={song.id} />
       </footer>
     </div>
   );
