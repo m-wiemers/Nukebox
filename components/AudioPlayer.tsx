@@ -14,7 +14,10 @@ export default function AudioPlayer({ audio, id }: Props) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const audioElement = audioRef.current;
-  const [favoriteSongs, setFavoriteSongs] = useLocalStorage("favoriteSong", []);
+  const [favoriteSongs, setFavoriteSongs] = useLocalStorage<string[]>(
+    "favoriteSong",
+    []
+  );
   const favorite = favoriteSongs.includes(id);
 
   useEffect(() => {
