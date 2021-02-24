@@ -30,6 +30,8 @@ export default function Home() {
     </Link>
   ));
 
+  const [views, setViews] = useState(null);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -39,6 +41,8 @@ export default function Home() {
       </Head>
 
       <Greetings name="Leon" />
+
+      <p>Dies ist dein {views}. Besuch!</p>
 
       <ol className={styles.orderedList}>{songsItem}</ol>
     </div>

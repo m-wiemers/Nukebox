@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "../styles/AudioPlayer.module.css";
 import { playSVG, pauseSVG, likeSVG, unlikeSVG } from "../public/icons";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 type Props = {
   id: string;
@@ -14,16 +15,17 @@ export default function AudioPlayer({ audio, id }: Props) {
   const [progress, setProgress] = useState(0);
   const [favorite, setFavorite] = useState(null);
   const audioElement = audioRef.current;
+  const [storedValue, setValue] = useLocalStorage("favoriteSong", "");
 
   useEffect(() => {
     if (typeof id !== "string" || favorite === null) {
       return;
     }
     if (favorite) {
-      localStorage.setItem("favoriteSong", id);
+      setValue(id);
     }
     if (!favorite) {
-      localStorage.removeItem("favoriteSong");
+      setValue("");
     }
   }, [favorite]);
 
@@ -31,7 +33,7 @@ export default function AudioPlayer({ audio, id }: Props) {
     if (typeof id !== "string") {
       return;
     }
-    setFavorite(id === localStorage.getItem("favoriteSong"));
+    setFavorite(id === storedValue);
   }, []);
 
   useEffect(() => {
@@ -48,6 +50,9 @@ export default function AudioPlayer({ audio, id }: Props) {
 
   return (
     <div className={styles.player}>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
       <button className={styles.like} onClick={() => setFavorite(!favorite)}>
         {favorite ? likeSVG : unlikeSVG}
       </button>
