@@ -13,28 +13,26 @@ export default function AudioPlayer({ audio, id }: Props) {
   const intervalRef = useRef<NodeJS.Timeout>();
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [favorite, setFavorite] = useState(null);
   const audioElement = audioRef.current;
-  const [storedValue, setValue] = useLocalStorage("favoriteSong", "");
-
-  useEffect(() => {
-    if (typeof id !== "string" || favorite === null) {
-      return;
-    }
-    if (favorite) {
-      setValue(id);
-    }
-    if (!favorite) {
-      setValue("");
-    }
-  }, [favorite]);
+  const [favoriteSongs, setFavoriteSongs] = useLocalStorage("favoriteSong", []);
+  const favorite = favoriteSongs.includes(id);
 
   useEffect(() => {
     if (typeof id !== "string") {
       return;
     }
-    setFavorite(id === storedValue);
   }, []);
+
+  const handleFavoriteClick = () => {
+    if (favorite) {
+      const newFavoriteSongs = favoriteSongs.filter(
+        (favoriteSong) => favoriteSong !== id
+      );
+      setFavoriteSongs(newFavoriteSongs);
+    } else {
+      setFavoriteSongs([...favoriteSongs, id]);
+    }
+  };
 
   useEffect(() => {
     if (isPlaying) {
@@ -53,7 +51,7 @@ export default function AudioPlayer({ audio, id }: Props) {
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <button className={styles.like} onClick={() => setFavorite(!favorite)}>
+      <button className={styles.like} onClick={handleFavoriteClick}>
         {favorite ? likeSVG : unlikeSVG}
       </button>
 
