@@ -14,6 +14,7 @@ export async function readDb(): Promise<DB> {
 }
 
 export async function writeDb(db: DB) {
+  console.log(db);
   const dbJSON = JSON.stringify(db, null, 2);
   await fs.writeFile(DB_PATH, dbJSON);
 }

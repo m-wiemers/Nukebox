@@ -5,6 +5,7 @@ type Props = {
   title: string;
   artist: string;
   link: string;
+  id: string;
 };
 
 export default function SongPrev(props: Props) {

@@ -21,8 +21,7 @@ export async function getSong(id: string): Promise<APISong> {
 }
 
 export async function deleteSong(id: string) {
-  const responce = await fetch(`/api/songs/${id}`, {
+  await fetch(`/api/songs/${id}`, {
     method: "DELETE",
   });
-  return responce;
 }

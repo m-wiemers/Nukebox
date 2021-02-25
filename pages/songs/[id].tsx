@@ -8,7 +8,6 @@ import styles from "../../styles/id.module.css";
 
 export default function Song() {
   const router = useRouter();
-  // const { id } = router.query;
   const { id: idQuery } = router.query;
   if (!idQuery) {
     return null;
