@@ -5,3 +5,13 @@
   text-align: center;
   width: 100%;
 }
+
+.delBtn {
+  padding: 1em;
+  margin: 0.5em;
+  background-color: red;
+  border: none;
+  border-radius: 10px;
+  font-weight: 900;
+  color: var(--secondary-color);
+}

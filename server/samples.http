@@ -1,0 +1,12 @@
+### GET all Tracks
+
+GET http://localhost:3000/api/songs
+
+
+### GET a single Song
+
+GET http://localhost:3000/api/songs/ich-am-strand-aerzte
+
+
+### DELETE a single Song
+DELETE http://localhost:3000/api/songs/stray-heart-green-day
