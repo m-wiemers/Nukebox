@@ -7,18 +7,15 @@ export type APISong = {
   path: string;
 };
 
-// export an asynch Function "getTrack"
-export async function getSongs() {
-  // Add Const "responce" and wait for an promise from url
-  const response = await fetch(`/api/songs`);
-  // Add const from type "APITrack" and wait for promise in json-format
-  const songs: APISong[] = await response.json();
-  //return the const tracks
-  return songs;
+async function fetchURL<T>(url: string): Promise<T> {
+  const responce = await fetch(url);
+  return await responce.json();
 }
 
-export async function getSong(id: string) {
-  const response = await fetch(`/api/songs/${id}`);
-  const song: APISong = await response.json();
-  return song;
+export async function getSongs(): Promise<APISong[]> {
+  return await fetchURL<APISong[]>("/api/songs");
+}
+
+export async function getSong(id: string): Promise<APISong> {
+  return await fetchURL<APISong>(`/api/songs/${id}`);
 }

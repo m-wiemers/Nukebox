@@ -2,8 +2,8 @@
   background-color: var(--secondary-color);
   border-radius: 15px 15px 0 0;
   display: grid;
-  width: 500px;
   justify-items: center;
+  padding: 1em;
 }
 
 .like {

@@ -1,13 +1,7 @@
 .globContainer {
   display: grid;
   justify-content: center;
+  grid-template-rows: auto 1fr;
   text-align: center;
-}
-
-.like {
-  background-color: transparent;
-  border: none;
-  fill: red;
-  width: 40px;
-  height: auto;
+  width: 100%;
 }

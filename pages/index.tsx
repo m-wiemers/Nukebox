@@ -7,10 +7,8 @@ import { APISong, getSongs } from "../utils/api";
 import Link from "next/link";
 
 export default function Home() {
-  // add const "tracks" and set the status to an empty Array from type "APITracks"
   const [songs, setSongs] = useState<APISong[]>([]);
 
-  // don`t know what this really do, but I like effects.
   useEffect(() => {
     getSongs().then((newTracks) => {
       setSongs(newTracks);

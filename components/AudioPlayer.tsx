@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "../styles/AudioPlayer.module.css";
 import { playSVG, pauseSVG, likeSVG, unlikeSVG } from "../public/icons";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 type Props = {
   id: string;
@@ -12,27 +13,29 @@ export default function AudioPlayer({ audio, id }: Props) {
   const intervalRef = useRef<NodeJS.Timeout>();
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [favorite, setFavorite] = useState(null);
   const audioElement = audioRef.current;
-
-  useEffect(() => {
-    if (typeof id !== "string" || favorite === null) {
-      return;
-    }
-    if (favorite) {
-      localStorage.setItem("favoriteSong", id);
-    }
-    if (!favorite) {
-      localStorage.removeItem("favoriteSong");
-    }
-  }, [favorite]);
+  const [favoriteSongs, setFavoriteSongs] = useLocalStorage<string[]>(
+    "favoriteSong",
+    []
+  );
+  const favorite = favoriteSongs.includes(id);
 
   useEffect(() => {
     if (typeof id !== "string") {
       return;
     }
-    setFavorite(id === localStorage.getItem("favoriteSong"));
   }, []);
+
+  const handleFavoriteClick = () => {
+    if (favorite) {
+      const newFavoriteSongs = favoriteSongs.filter(
+        (favoriteSong) => favoriteSong !== id
+      );
+      setFavoriteSongs(newFavoriteSongs);
+    } else {
+      setFavoriteSongs([...favoriteSongs, id]);
+    }
+  };
 
   useEffect(() => {
     if (isPlaying) {
@@ -48,7 +51,10 @@ export default function AudioPlayer({ audio, id }: Props) {
 
   return (
     <div className={styles.player}>
-      <button className={styles.like} onClick={() => setFavorite(!favorite)}>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
+      <button className={styles.like} onClick={handleFavoriteClick}>
         {favorite ? likeSVG : unlikeSVG}
       </button>
 
