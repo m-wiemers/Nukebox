@@ -9,4 +9,17 @@ GET http://localhost:3000/api/songs/ich-am-strand-aerzte
 
 
 ### DELETE a single Song
-DELETE http://localhost:3000/api/songs/stray-heart-green-day
+DELETE http://localhost:3000/api/songs/midas-i-fight-with-mr-right
+
+
+### Post new Track
+Post http://localhost:3000/api/songs
+Content-Type: application/json
+
+{
+    "id": "midas-i-fight-with-mr-right",
+    "image": "https://gp1.wac.edgecastcdn.net/802892/http_public_production/photos/images/22524662/original/resize:300x225/crop:x11y12w442h332/hash:1464660523/1431279375_794321017313258_1731408266737095111_n.png",
+    "title": "Midas",
+    "artist": "I Fight With Mr Right",
+    "path": "/biersong.mp3"
+}

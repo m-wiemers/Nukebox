@@ -29,6 +29,15 @@ export default function Song() {
     window.history.back();
   }
 
+  const handleDeleteClick = async () => {
+    const conf = confirm("are you fu** sure?");
+    if (conf == true) {
+      await deleteSong(song.id);
+    } else {
+      getSong(id);
+    }
+  };
+
   return (
     <div className={styles.globContainer}>
       <head>
@@ -42,7 +51,7 @@ export default function Song() {
           artist={song.artist}
           path={song.path}
         />
-        <button onClick={() => deleteSong(id)} className={styles.delBtn}>
+        <button onClick={handleDeleteClick} className={styles.delBtn}>
           DELETE
         </button>
       </main>
