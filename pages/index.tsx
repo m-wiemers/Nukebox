@@ -25,6 +25,7 @@ export default function Home() {
           id={song.id}
         />
         <button
+          className={styles.deleteBtn}
           onClick={async (event) => {
             event.preventDefault();
             await deleteSong(song.id);
@@ -50,8 +51,9 @@ export default function Home() {
       <ol className={styles.orderedList}>{songsItem}</ol>
 
       <div>
-        <p>Wanne spend a Song?</p>
-        <button>Here you go</button>
+        <Link href={"../newSong"}>
+          <button className={styles.newSongBtn}>Wanna spend a Song?</button>
+        </Link>
       </div>
     </div>
   );

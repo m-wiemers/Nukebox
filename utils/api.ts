@@ -25,3 +25,11 @@ export async function deleteSong(id: string) {
     method: "DELETE",
   });
 }
+
+export async function postSong(NewSong: APISong) {
+  return await fetch("/api/songs", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(NewSong),
+  });
+}

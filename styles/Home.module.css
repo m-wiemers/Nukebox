@@ -11,3 +11,19 @@
   display: grid;
   row-gap: 1em;
 }
+
+.newSongBtn {
+  background-color: rgb(0, 163, 0);
+  margin-top: 1em;
+  padding: 1em;
+  border-radius: 15px;
+  color: white;
+  border: none;
+}
+
+.deleteBtn {
+  background-color: red;
+  color: white;
+  padding: 0 1em 0 1em;
+  border: none;
+}
