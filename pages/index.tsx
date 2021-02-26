@@ -3,17 +3,16 @@ import styles from "../styles/Home.module.css";
 import Greetings from "../components/Greetings";
 import SongPrev from "../components/SongList";
 import { useEffect, useState } from "react";
-import { APISong, getSongs } from "../utils/api";
+import { APISong, deleteSong, getSongs } from "../utils/api";
 import Link from "next/link";
 
 export default function Home() {
   const [songs, setSongs] = useState<APISong[]>([]);
 
-  useEffect(() => {
-    getSongs().then((newTracks) => {
-      setSongs(newTracks);
-    });
-  }, []);
+  function refreshSongs() {
+    getSongs().then(setSongs);
+  }
+  useEffect(refreshSongs, []);
 
   const songsItem = songs.map((song) => (
     <Link href={`/songs/${song.id}`} key={song.id}>
@@ -23,7 +22,17 @@ export default function Home() {
           title={song.title}
           artist={song.artist}
           link={song.path}
+          id={song.id}
         />
+        <button
+          onClick={async (event) => {
+            event.preventDefault();
+            await deleteSong(song.id);
+            refreshSongs();
+          }}
+        >
+          Delete
+        </button>
       </a>
     </Link>
   ));
@@ -39,6 +48,11 @@ export default function Home() {
       <Greetings name="Leon" />
 
       <ol className={styles.orderedList}>{songsItem}</ol>
+
+      <div>
+        <p>Wanne spend a Song?</p>
+        <button>Here you go</button>
+      </div>
     </div>
   );
 }
